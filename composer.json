@@ -1,0 +1,23 @@
+{
+    "name": "elevencodes/instagram-laravel",
+    "description": "Instagram Service Provider for Laravel 4",
+    "keywords": ["laravel","laravel 4","instagram"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sumardi Shukor",
+            "email": "me@sumardi.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.0.x",
+        "php-instagram-api/php-instagram-api": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Elevencodes\\InstagramLaravel": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
