@@ -71,7 +71,7 @@ Add the following methods in your Users Controller.
 	{
 		Session::put(Config::get('instagram.session_name'), Instagram::getAccessToken(Input::get('code')));
 
-		return Redirect::('/');
+		return Redirect::to('/');
 	}
 
 	public function getLogout()
