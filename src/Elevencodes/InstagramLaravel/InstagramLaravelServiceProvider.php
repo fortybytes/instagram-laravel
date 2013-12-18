@@ -1,7 +1,8 @@
 <?php namespace Elevencodes\InstagramLaravel;
 
+use Instagram\Auth;
+use Instagram\Instagram;
 use Illuminate\Support\ServiceProvider;
-use Instagram;
 
 class InstagramLaravelServiceProvider extends ServiceProvider {
 
@@ -13,21 +14,30 @@ class InstagramLaravelServiceProvider extends ServiceProvider {
 	protected $defer = false;
 
 	/**
+	 * Boot the service provider.
+	 *
+	 * @return void
+	 */
+	public function boot()
+	{
+		$this->package('elevencodes/instagram-laravel', 'instagram');
+	}
+
+	/**
 	 * Register the service provider.
 	 *
 	 * @return void
 	 */
 	public function register()
 	{
-		$this->app['instagram'] = $this->app->share(function ($app) 
-		{		
-			if ($app['session']->has($app['config']['instagram']['session_name'])) {
-				return new Instagram\Instagram($app['session']->get($app['config']['instagram']['session_name']));
+		$this->app->bindShared('instagram', function($app) {
+			if ($app['session']->has($app['config']['instagram::session_name'])) {
+				return new Instagram($app['session']->get($app['config']['instagram::session_name']));
 			} else {
-				$auth_config = !empty($app['config']['instagram']) ? $app['config']['instagram'] : array();
-				return new Instagram\Auth($auth_config);
-			}			
-        });
+				$auth_config = !empty($app['config']['instagram::config']) ? $app['config']['instagram::config'] : array();
+				return new Auth($auth_config);
+			}
+		});
 	}
 
 	/**
@@ -37,7 +47,7 @@ class InstagramLaravelServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array();
+		return array('instagram');
 	}
 
 }
