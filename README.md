@@ -1,10 +1,10 @@
-# Instagram Service Provider for Laravel 4
+# Instagram Service Provider for Laravel
 
 A simple [Laravel 4](http://laravel.com) service provider for including the [PHP Instagram API](https://github.com/galen/PHP-Instagram-API).
 
 ## Installation
 
-The Instagram Service Provider can be installed via [Composer](http://getcomposer.org) by requiring the `elevencodes/instagram-laravel` package and setting the `minimum-stability` to `dev` in your project's `composer.json`.
+The Instagram Service Provider can be installed via [Composer](http://getcomposer.org) by requiring the `elevencodes/instagram-laravel` package.
 
 ```json
 {
@@ -21,16 +21,10 @@ To use the Instagram Service Provider, you must register the provider when boots
 
 ### Use Laravel Configuration
 
-Create a new `app/config/instagram.php` configuration file with the following options:
+Run `config:publish` artisan command and update the package configuration file.
 
-```php
-return array(
-    'client_id'    	=> '<your-instagram-client-id>',
-    'client_secret' => '<your-instagram-client-secret>',
-    'redirect_uri'	=> '<your-instagram-redirect-uri>',
-    'scope'			=> array('<your-instagram-scope>'),
-    'session_name'	=> '<your-instagram-session-key>'
-);
+```bash
+php artisan config:publish elevencodes/instagram-laravel
 ```
 
 Find the `providers` key in `app/config/app.php` and register the Instagram Service Provider.
@@ -60,22 +54,22 @@ Add the following methods in your Users Controller.
 ```php
 	public function getLogin()
 	{
-		if (Session::has(Config::get('instagram.session_name')))
-			Session::forget(Config::get('instagram.session_name'));
+		if (Session::has(Config::get('instagram::session_name')))
+			Session::forget(Config::get('instagram::session_name'));
 
 		Instagram::authorize();
 	}
 
 	public function getAuthorize()
 	{
-		Session::put(Config::get('instagram.session_name'), Instagram::getAccessToken(Input::get('code')));
+		Session::put(Config::get('instagram::session_name'), Instagram::getAccessToken(Input::get('code')));
 
 		return Redirect::to('/');
 	}
 
 	public function getLogout()
 	{
-		Session::forget(Config::get('instagram.session_name'));
+		Session::forget(Config::get('instagram::session_name'));
 
 		return Redirect::to('/');
 	}
@@ -89,7 +83,9 @@ Route::get('/login', array('as' => 'login', 'uses' => 'UsersController@getLogin'
 Route::get('/logout', array('as' => 'logout', 'uses' => 'UsersController@getLogout'));
 ```
 
-### Current user
+## Example
+
+### Get current user
 
 You can use static call to get the current authenticated user.
 
