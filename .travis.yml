@@ -7,6 +7,12 @@ php:
 
 before_script:
   - curl -s http://getcomposer.org/installer | php
+  - php composer.phar require satooshi/php-coveralls:dev-master --dev --no-progress --prefer-source
   - php composer.phar install --dev
 
-script: phpunit --coverage-text
+script:
+  - mkdir -p build/logs
+  - phpunit --coverage-clover build/logs/clover.xml
+
+after_script:
+  - php vendor/bin/coveralls -v
