@@ -9,10 +9,9 @@ The Instagram Service Provider can be installed via [Composer](http://getcompose
 ```json
 {
 	"require": {
-		"laravel/framework": "4.0.*",
-		"elevencodes/instagram-laravel": "1.*"
-	},
-	"minimum-stability": "dev"
+		"laravel/framework": "4.1.*",
+		"elevencodes/instagram-laravel": "2.*"
+	}
 }
 ```
 
@@ -29,7 +28,7 @@ return array(
     'client_id'    	=> '<your-instagram-client-id>',
     'client_secret' => '<your-instagram-client-secret>',
     'redirect_uri'	=> '<your-instagram-redirect-uri>',
-    'scope'			=> array('<your-instagram-scope>'),    
+    'scope'			=> array('<your-instagram-scope>'),
     'session_name'	=> '<your-instagram-session-key>'
 );
 ```
@@ -54,16 +53,16 @@ Find the `aliases` key in `app/config/app.php` and add in our `Instagram` alias.
 
 ### Authentication
 
-The following example uses the Instagram Service Provider to authenticate user.  
-   
-Add the following methods in your Users Controller.  
+The following example uses the Instagram Service Provider to authenticate user.
+
+Add the following methods in your Users Controller.
 
 ```php
 	public function getLogin()
 	{
 		if (Session::has(Config::get('instagram.session_name')))
-			Session::forget(Config::get('instagram.session_name'));		
-		
+			Session::forget(Config::get('instagram.session_name'));
+
 		Instagram::authorize();
 	}
 
