@@ -14,6 +14,7 @@ The Instagram Service Provider can be installed via [Composer](http://getcompose
 	}
 }
 ```
+> If you are using the Laravel 4.0, use `"elevencodes/instagram-laravel": "1.*"` instead.
 
 ## Usage
 
