@@ -27,7 +27,7 @@
         "component": "package",
         "frameworks": ["Laravel 4"],
         "branch-alias": {
-                        "dev-master": "1.0.1-dev"
+                        "dev-master": "2.0-dev"
                 }
     },
     "minimum-stability": "dev"
