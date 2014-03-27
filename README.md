@@ -1,6 +1,6 @@
 # Instagram Service Provider for Laravel
 
-[![Build Status](https://travis-ci.org/elevencodes/instagram-laravel.png?branch=master)](https://travis-ci.org/elevencodes/instagram-laravel) [![Coverage Status](https://coveralls.io/repos/elevencodes/instagram-laravel/badge.png?branch=master)](https://coveralls.io/r/elevencodes/instagram-laravel?branch=master) [![Latest Stable Version](https://poser.pugx.org/elevencodes/instagram-laravel/v/stable.png)](https://packagist.org/packages/elevencodes/instagram-laravel) [![Total Downloads](https://poser.pugx.org/elevencodes/instagram-laravel/downloads.png)](https://packagist.org/packages/elevencodes/instagram-laravel)
+[![Build Status](https://travis-ci.org/fortybytes/instagram-laravel.svg?branch=2.0.3)](https://travis-ci.org/fortybytes/instagram-laravel) [![Coverage Status](https://coveralls.io/repos/elevencodes/instagram-laravel/badge.png?branch=master)](https://coveralls.io/r/elevencodes/instagram-laravel?branch=master) [![Latest Stable Version](https://poser.pugx.org/elevencodes/instagram-laravel/v/stable.png)](https://packagist.org/packages/elevencodes/instagram-laravel) [![Total Downloads](https://poser.pugx.org/elevencodes/instagram-laravel/downloads.png)](https://packagist.org/packages/elevencodes/instagram-laravel)
 
 A simple [Laravel 4](http://laravel.com) service provider for including the [PHP Instagram API](https://github.com/galen/PHP-Instagram-API).
 
