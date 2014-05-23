@@ -12,7 +12,8 @@ The Instagram Service Provider can be installed via [Composer](http://getcompose
 {
 	"require": {
 		"laravel/framework": "4.1.*",
-		"elevencodes/instagram-laravel": "2.*"
+		"php-instagram-api/php-instagram-api": "dev-master",
+        "elevencodes/instagram-laravel": "2.0.*@dev"
 	}
 }
 ```
